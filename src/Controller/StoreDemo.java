@@ -1,24 +1,27 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+package Controller;
+
+import Factory.DiscountFactory;
+import Factory.ProductFactory;
+import Product.Product;
+import Strategy.DiscountStrategy;
+
+import java.nio.file.Path;
+import java.util.List;
 
 
 public class StoreDemo {
 
-    private final static PATH_PRODUCTS = "D:\\products.txt";
+    public final static Path PRODUCT_CATALOG_FILE = Path.of("D:\\products.txt");
+    public final static Path DISCOUNT_CONFIG_FILE = Path.of("D:\\active_discount.properties.txt");
 
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("D:\\products.txt"));
-        StringBuilder sb = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            sb.append(line).append("\n");
-        }
-        reader.close();
-        String content = sb.toString();
-        System.out.println(content);
-
-        ProductFactory productFactory = new ProductFactory();
+    public static void main(String[] args) {
+        Order order = new Order();
+        List<Product> products = ProductFactory.createProducts(PRODUCT_CATALOG_FILE);
+        DiscountStrategy discountStrategy = DiscountFactory.careateDiscountStrategy(DISCOUNT_CONFIG_FILE);
+        order.addProduct(products);
+        order.setDiscountStrategy(discountStrategy);
+        double subtotal = order.calculateTotalPrice();
+        System.out.println(subtotal);
     }
 }

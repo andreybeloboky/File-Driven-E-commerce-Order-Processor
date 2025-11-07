@@ -1,30 +1,33 @@
+package Controller;
+
+import Factory.DiscountFactory;
 import Product.Product;
 import Strategy.DiscountStrategy;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Order {
-    private ArrayList<Product> products;
+    private final List<Product> products = new LinkedList<>();
     private DiscountStrategy discountStrategy;
 
-    public Order(ArrayList<Product> products, DiscountStrategy discountStrategy) {
-        this.products = products;
-        this.discountStrategy = discountStrategy;
+    void addProduct(List<Product> product) {
+        products.addAll(product);
     }
 
-    void addProduct(Product product){
-
+    void setDiscountStrategy(DiscountStrategy strategy) {
+        this.discountStrategy = strategy;
     }
 
-    void setDiscountStrategy(DiscountStrategy strategy){
-
+    double calculateTotalPrice() {
+        double subtotal = 0;
+        for (Product product : products) {
+            subtotal += product.calculatePrice();
+        }
+        return discountStrategy.applyDiscount(subtotal);
     }
 
-    void calculateTotalPrice(){
-
-    }
-
-    void calculateTotalShippingWeight(){
+    void calculateTotalShippingWeight() {
 
     }
 }

@@ -1,7 +1,9 @@
+package Product;
+
 public class DigitalProduct extends Product{
 
 
-    public DigitalProduct(int productId, String name, double basePrice) {
+    public DigitalProduct(String productId, String name, double basePrice) {
         super(productId, name, basePrice);
     }
 
