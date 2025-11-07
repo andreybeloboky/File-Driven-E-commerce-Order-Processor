@@ -1,6 +1,7 @@
 package Strategy;
 
 public class PercentageDiscount implements DiscountStrategy {
+
     private final double percentage;
 
     public PercentageDiscount(double percentage) {

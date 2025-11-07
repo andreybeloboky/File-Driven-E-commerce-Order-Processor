@@ -1,6 +1,7 @@
 package Strategy;
 
 public class FixedAmountDiscount implements DiscountStrategy {
+
     private final double discountAmount;
 
     public FixedAmountDiscount(double discountAmount) {

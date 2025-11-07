@@ -1,6 +1,5 @@
 package Controller;
 
-import Factory.DiscountFactory;
 import Product.Product;
 import Strategy.DiscountStrategy;
 
