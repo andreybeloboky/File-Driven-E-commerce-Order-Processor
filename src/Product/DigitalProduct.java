@@ -14,6 +14,6 @@ public class DigitalProduct extends Product{
 
     @Override
     public double getShippingWeight() {
-        return 0;
+        return weight;
     }
 }
