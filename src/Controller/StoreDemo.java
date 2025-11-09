@@ -24,6 +24,5 @@ public class StoreDemo {
         double subtotal = order.calculateTotalPrice();
         System.out.println(subtotal);
         System.out.println(order.calculateTotalShippingWeight());
-        System.out.println("Total");
     }
 }
