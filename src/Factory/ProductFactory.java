@@ -17,9 +17,12 @@ public class ProductFactory {
         String[] args = productString.split(",");
         ProductTypes productTypes = ProductTypes.valueOf(args[0]);
         return switch (productTypes) {
-            case ELECTRONIC -> new ElectronicProduct(args[1], args[0], Double.parseDouble(args[3]));
-            case DIGITAL -> new DigitalProduct(args[1], args[0], Double.parseDouble(args[3]));
-            case CLOTHING -> new ClothingProduct(args[1], args[0], Double.parseDouble(args[3]));
+            case ELECTRONIC ->
+                    new ElectronicProduct(args[1], args[0], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
+            case DIGITAL ->
+                    new DigitalProduct(args[1], args[0], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
+            case CLOTHING ->
+                    new ClothingProduct(args[1], args[0], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
         };
     }
 

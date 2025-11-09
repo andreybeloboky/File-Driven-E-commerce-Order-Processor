@@ -23,5 +23,6 @@ public class StoreDemo {
         order.setDiscountStrategy(discountStrategy);
         double subtotal = order.calculateTotalPrice();
         System.out.println(subtotal);
+        System.out.println(order.calculateTotalShippingWeight());
     }
 }

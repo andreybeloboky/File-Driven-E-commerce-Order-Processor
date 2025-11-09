@@ -2,8 +2,8 @@ package Product;
 
 public class ClothingProduct extends Product implements Shippable {
 
-    public ClothingProduct(String productId, String name, double basePrice) {
-        super(productId, name, basePrice);
+    public ClothingProduct(String productId, String name, double basePrice, double weight) {
+        super(productId, name, basePrice, weight);
     }
 
     @Override
@@ -13,6 +13,6 @@ public class ClothingProduct extends Product implements Shippable {
 
     @Override
     public double getShippingWeight() {
-        return 0;
+        return weight;
     }
 }

@@ -2,13 +2,13 @@ package Product;
 
 public class ElectronicProduct extends Product implements Shippable {
 
-    public ElectronicProduct(String productId, String name, double basePrice) {
-        super(productId, name, basePrice);
+    public ElectronicProduct(String productId, String name, double basePrice, double weight) {
+        super(productId, name, basePrice, weight);
     }
 
     @Override
     public double getShippingWeight() {
-        return 0;
+        return weight;
     }
 
     @Override

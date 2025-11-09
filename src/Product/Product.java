@@ -1,15 +1,17 @@
 package Product;
 
-public abstract class Product {
+public abstract class Product implements Shippable {
 
-    private final String productId;
-    private final String name;
+    final String productId;
+    final String name;
     final double basePrice;
+    final double weight;
 
-    public Product(String productId, String name, double basePrice) {
+    public Product(String productId, String name, double basePrice, double weight) {
         this.productId = productId;
         this.name = name;
         this.basePrice = basePrice;
+        this.weight = weight;
     }
 
     public abstract double calculatePrice();

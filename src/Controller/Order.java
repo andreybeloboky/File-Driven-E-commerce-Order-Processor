@@ -26,7 +26,11 @@ public class Order {
         return discountStrategy.applyDiscount(subtotal);
     }
 
-    void calculateTotalShippingWeight() {
-
+    double calculateTotalShippingWeight() {
+        double totalWeight = 0;
+        for (Product product : products) {
+            totalWeight += product.getShippingWeight();
+        }
+        return totalWeight;
     }
 }
