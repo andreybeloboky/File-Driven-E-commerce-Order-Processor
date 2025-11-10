@@ -6,4 +6,9 @@ public class NoDiscount implements DiscountStrategy {
     public double applyDiscount(double subtotal) {
         return subtotal;
     }
+
+    @Override
+    public double getPercentage() {
+        return 0;
+    }
 }

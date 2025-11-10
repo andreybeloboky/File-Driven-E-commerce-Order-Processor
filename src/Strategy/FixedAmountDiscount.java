@@ -12,4 +12,9 @@ public class FixedAmountDiscount implements DiscountStrategy {
     public double applyDiscount(double subtotal) {
         return Math.max(0, subtotal - discountAmount);
     }
+
+    @Override
+    public double getPercentage() {
+        return 0;
+    }
 }
