@@ -26,6 +26,8 @@ public class Order {
         return discountStrategy.applyDiscount(subtotal);
     }
 
+
+
     double calculateTotalShippingWeight() {
         double totalWeight = 0;
         for (Product product : products) {
