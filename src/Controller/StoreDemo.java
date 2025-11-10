@@ -32,7 +32,7 @@ public class StoreDemo {
         System.out.printf(PRODUCTS_PRINT, products.size());
         System.out.printf(PERCENTAGE_SET, discountStrategy.getPercentage());
         System.out.printf(TOTAL_WEIGHT, order.calculateTotalShippingWeight());
-        System.out.printf(ORDER, 1);
+        System.out.printf(ORDER, 2);
         System.out.printf(TOTAL_PRICE, order.calculateTotalPrice());
     }
 }
