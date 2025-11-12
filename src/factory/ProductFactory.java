@@ -1,5 +1,6 @@
 package factory;
 
+import exception.NotFoundCorrectInformationException;
 import product.Product;
 import product.ElectronicProduct;
 import product.DigitalProduct;

@@ -1,5 +1,6 @@
 package factory;
 
+import exception.NotFoundCorrectInformationException;
 import strategy.*;
 
 import java.io.IOException;
@@ -23,11 +24,15 @@ public class DiscountFactory {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        StrategyCommand command = StrategyCommand.valueOf(values.get(0));
-        return switch (command) {
-            case PERCENTAGE -> new PercentageDiscount(Double.parseDouble(values.get(1)));
-            case NONE -> new NoDiscount();
-            case FIXED -> new FixedAmountDiscount(Double.parseDouble(values.get(1)));
-        };
+        try {
+            StrategyCommand command = StrategyCommand.valueOf(values.get(0));
+            return switch (command) {
+                case PERCENTAGE -> new PercentageDiscount(Double.parseDouble(values.get(1)));
+                case NONE -> new NoDiscount();
+                case FIXED -> new FixedAmountDiscount(Double.parseDouble(values.get(1)));
+            };
+        } catch (IllegalArgumentException e) {
+            throw new NotFoundCorrectInformationException("There are not suitable discount strategies");
+        }
     }
 }

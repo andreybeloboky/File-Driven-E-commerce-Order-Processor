@@ -1,5 +1,6 @@
 package controller;
 
+import exception.NotFoundCorrectInformationException;
 import factory.DiscountFactory;
 import factory.ProductFactory;
 import product.Product;
@@ -8,13 +9,14 @@ import strategy.FixedAmountDiscount;
 import strategy.PercentageDiscount;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class StoreDemo {
 
     public final static Path PRODUCT_CATALOG_FILE = Path.of("D:\\products.csv");
-    public final static Path DISCOUNT_CONFIG_FILE = Path.of("D:\\active_discount.properties.txt");
+    public final static Path DISCOUNT_CONFIG_FILE = Path.of("D:\\active_discount.properties.csv");
     public final static String PRODUCTS_PRINT = "Successfully loaded %s products from products.csv.\n";
     public final static String PERCENTAGE_SET = """
             Applying %s percentage discount from active_discount.properties.
@@ -52,5 +54,13 @@ public class StoreDemo {
         System.out.printf(TOTAL_WEIGHT, order.calculateTotalShippingWeight());
         System.out.printf(ORDER, totalPriceWithoutDiscount);
         System.out.printf(TOTAL_PRICE, totalPriceWithDiscount);
+
+       /* switch (discountStrategy){
+            case PercentageDiscount(double percentage)-> System.out.printf(PERCENTAGE_SET, percentage);
+            case FixedAmountDiscount(double discountAmount) -> System.out.printf(AMOUNT_DISCOUNT,discountAmount);
+            default -> System.out.printf(NO_DISCOUNT);
+        }
+        */
     }
 }
+

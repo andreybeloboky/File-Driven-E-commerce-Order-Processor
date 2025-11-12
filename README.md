@@ -8,7 +8,7 @@
 #
 # Step 2: open a terminal, point to the folder or package where your main program is present.
 #
-# Step 3: - Compile it with command javac. javac \*.java in folder project > src > Controller > StoreDemo.
+# Step 3: - Compile it with command javac. javac \*.java in folder project > src > controller > StoreDemo.
 #
 # Step 4: - After the compilation class file is available, run it with java filename
 #
