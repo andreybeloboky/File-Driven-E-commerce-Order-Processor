@@ -1,6 +1,5 @@
 package controller;
 
-import exception.NotFoundCorrectInformationException;
 import factory.DiscountFactory;
 import factory.ProductFactory;
 import product.Product;
@@ -9,7 +8,6 @@ import strategy.FixedAmountDiscount;
 import strategy.PercentageDiscount;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
 
 
