@@ -16,15 +16,19 @@ public class ProductFactory {
 
     public static Product createProduct(String productString) {
         String[] args = productString.split(",");
-        ProductTypes productTypes = ProductTypes.valueOf(args[0]);
-        return switch (productTypes) {
-            case ELECTRONIC ->
-                    new ElectronicProduct(args[1], args[0], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
-            case DIGITAL ->
-                    new DigitalProduct(args[1], args[0], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
-            case CLOTHING ->
-                    new ClothingProduct(args[1], args[0], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
-        };
+        try {
+            ProductTypes productTypes = ProductTypes.valueOf(args[0]);
+            return switch (productTypes) {
+                case ELECTRONIC ->
+                        new ElectronicProduct(args[1], args[0], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
+                case DIGITAL ->
+                        new DigitalProduct(args[1], args[0], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
+                case CLOTHING ->
+                        new ClothingProduct(args[1], args[0], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
+            };
+        } catch (IllegalArgumentException e) {
+            throw new NotFoundCorrectInformationException("There are not suitable product on this list");
+        }
     }
 
     public static List<Product> createProducts(Path path) {
