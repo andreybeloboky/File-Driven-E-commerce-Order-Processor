@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DiscountFactory {
+
     public static DiscountStrategy careateDiscountStrategy(Path configFilePath) {
         ArrayList<String> values = new ArrayList<>();
         try {

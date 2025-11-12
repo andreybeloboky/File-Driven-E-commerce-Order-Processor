@@ -1,12 +1,6 @@
 package Strategy;
 
-public class FixedAmountDiscount implements DiscountStrategy {
-
-    private final double discountAmount;
-
-    public FixedAmountDiscount(double discountAmount) {
-        this.discountAmount = discountAmount;
-    }
+public record FixedAmountDiscount(double discountAmount) implements DiscountStrategy {
 
     @Override
     public double applyDiscount(double subtotal) {
@@ -14,7 +8,7 @@ public class FixedAmountDiscount implements DiscountStrategy {
     }
 
     @Override
-    public double getPercentage() {
+    public double percentage() {
         return 0;
     }
 }

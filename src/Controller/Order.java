@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Order {
+
     private final List<Product> products = new LinkedList<>();
     private DiscountStrategy discountStrategy;
 
@@ -25,7 +26,6 @@ public class Order {
         }
         return discountStrategy.applyDiscount(subtotal);
     }
-
 
 
     double calculateTotalShippingWeight() {

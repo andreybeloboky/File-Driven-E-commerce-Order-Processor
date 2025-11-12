@@ -8,7 +8,7 @@ public class NoDiscount implements DiscountStrategy {
     }
 
     @Override
-    public double getPercentage() {
+    public double percentage() {
         return 0;
     }
 }
