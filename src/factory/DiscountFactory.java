@@ -1,6 +1,6 @@
-package Factory;
+package factory;
 
-import Strategy.*;
+import strategy.*;
 
 import java.io.IOException;
 import java.nio.file.Files;

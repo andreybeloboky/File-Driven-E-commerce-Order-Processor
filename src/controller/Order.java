@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
-import Product.Product;
-import Strategy.DiscountStrategy;
+import product.Product;
+import strategy.DiscountStrategy;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -10,6 +10,7 @@ public class Order {
 
     private final List<Product> products = new LinkedList<>();
     private DiscountStrategy discountStrategy;
+    private double subtotalWithoutDiscount;
 
     void addProduct(List<Product> product) {
         products.addAll(product);
@@ -24,6 +25,7 @@ public class Order {
         for (Product product : products) {
             subtotal += product.calculatePrice();
         }
+        this.subtotalWithoutDiscount = subtotal;
         return discountStrategy.applyDiscount(subtotal);
     }
 
@@ -34,5 +36,9 @@ public class Order {
             totalWeight += product.getShippingWeight();
         }
         return totalWeight;
+    }
+
+    public double getSubtotalWithoutDiscount() {
+        return subtotalWithoutDiscount;
     }
 }

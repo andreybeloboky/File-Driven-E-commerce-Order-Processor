@@ -1,8 +1,7 @@
-package Strategy;
+package strategy;
 
 public interface DiscountStrategy {
 
     double applyDiscount(double subtotal);
 
-    double percentage();
 }

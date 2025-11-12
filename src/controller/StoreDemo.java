@@ -1,9 +1,11 @@
-package Controller;
+package controller;
 
-import Factory.DiscountFactory;
-import Factory.ProductFactory;
-import Product.Product;
-import Strategy.DiscountStrategy;
+import factory.DiscountFactory;
+import factory.ProductFactory;
+import product.Product;
+import strategy.DiscountStrategy;
+import strategy.FixedAmountDiscount;
+import strategy.PercentageDiscount;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -18,6 +20,14 @@ public class StoreDemo {
             Applying %s percentage discount from active_discount.properties.
             ---\s
             """;
+    public final static String AMOUNT_DISCOUNT = """
+            Applying %s discount from active_discount.properties.
+            ---\s
+            """;
+    public final static String NO_DISCOUNT = """
+            Applying no discount from active_discount.properties.
+            ---\s
+            """;
     public final static String TOTAL_WEIGHT = "Total Shipping Weight: %s kg \n";
     public final static String ORDER = "Order Subtotal: %s$ \n";
     public final static String TOTAL_PRICE = "Final Price: %s$";
@@ -29,10 +39,18 @@ public class StoreDemo {
         DiscountStrategy discountStrategy = DiscountFactory.careateDiscountStrategy(DISCOUNT_CONFIG_FILE);
         order.addProduct(products);
         order.setDiscountStrategy(discountStrategy);
+        double totalPriceWithDiscount = order.calculateTotalPrice();
+        double totalPriceWithoutDiscount = order.getSubtotalWithoutDiscount();
         System.out.printf(PRODUCTS_PRINT, products.size());
-        System.out.printf(PERCENTAGE_SET, discountStrategy.percentage());
+        if (discountStrategy instanceof PercentageDiscount getPercentage) {
+            System.out.printf(PERCENTAGE_SET, getPercentage.percentage());
+        } else if (discountStrategy instanceof FixedAmountDiscount getDiscountAmount) {
+            System.out.printf(AMOUNT_DISCOUNT, getDiscountAmount.discountAmount());
+        } else {
+            System.out.printf(NO_DISCOUNT);
+        }
         System.out.printf(TOTAL_WEIGHT, order.calculateTotalShippingWeight());
-        System.out.printf(ORDER, 2);
-        System.out.printf(TOTAL_PRICE, order.calculateTotalPrice());
+        System.out.printf(ORDER, totalPriceWithoutDiscount);
+        System.out.printf(TOTAL_PRICE, totalPriceWithDiscount);
     }
 }

@@ -1,8 +1,9 @@
-package Product;
+package product;
 
-public class ClothingProduct extends Product implements Shippable {
+public class DigitalProduct extends Product{
 
-    public ClothingProduct(String productId, String name, double basePrice, double weight) {
+
+    public DigitalProduct(String productId, String name, double basePrice, double weight) {
         super(productId, name, basePrice, weight);
     }
 

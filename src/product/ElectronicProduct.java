@@ -1,4 +1,4 @@
-package Product;
+package product;
 
 public class ElectronicProduct extends Product implements Shippable {
 
@@ -7,12 +7,12 @@ public class ElectronicProduct extends Product implements Shippable {
     }
 
     @Override
-    public double getShippingWeight() {
-        return weight;
+    public double calculatePrice() {
+        return basePrice * 1.1;
     }
 
     @Override
-    public double calculatePrice() {
-        return basePrice * 1.1;
+    public double getShippingWeight() {
+        return weight;
     }
 }

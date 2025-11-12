@@ -1,9 +1,9 @@
-package Factory;
+package factory;
 
-import Product.Product;
-import Product.ElectronicProduct;
-import Product.DigitalProduct;
-import Product.ClothingProduct;
+import product.Product;
+import product.ElectronicProduct;
+import product.DigitalProduct;
+import product.ClothingProduct;
 
 import java.io.IOException;
 import java.nio.file.Files;

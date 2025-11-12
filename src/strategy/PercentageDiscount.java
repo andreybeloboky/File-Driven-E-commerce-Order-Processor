@@ -1,4 +1,4 @@
-package Strategy;
+package strategy;
 
 public record PercentageDiscount(double percentage) implements DiscountStrategy {
 
