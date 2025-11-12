@@ -11,4 +11,5 @@ public record FixedAmountDiscount(double discountAmount) implements DiscountStra
     public double percentage() {
         return 0;
     }
+
 }

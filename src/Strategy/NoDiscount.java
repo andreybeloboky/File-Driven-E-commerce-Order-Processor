@@ -11,4 +11,5 @@ public class NoDiscount implements DiscountStrategy {
     public double percentage() {
         return 0;
     }
+
 }
