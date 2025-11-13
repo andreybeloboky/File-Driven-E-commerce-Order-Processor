@@ -1,7 +1,6 @@
 package product;
 
-public class DigitalProduct extends Product{
-
+public class DigitalProduct extends Product {
 
     public DigitalProduct(String productId, String name, double basePrice, double weight) {
         super(productId, name, basePrice, weight);

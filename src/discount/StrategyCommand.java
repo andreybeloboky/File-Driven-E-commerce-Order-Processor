@@ -1,4 +1,4 @@
-package strategy;
+package discount;
 
 public enum StrategyCommand {
     FIXED, NONE, PERCENTAGE

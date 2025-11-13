@@ -1,10 +1,6 @@
-package factory;
+package product;
 
 import exception.NotFoundCorrectInformationException;
-import product.Product;
-import product.ElectronicProduct;
-import product.DigitalProduct;
-import product.ClothingProduct;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,8 +10,11 @@ import java.util.List;
 
 public class ProductFactory {
 
-    public static Product createProduct(String productString) {
-        String[] args = productString.split(",");
+    private static final String SPLIT = ",";
+    private static final String ALARM_ERROR_MESSAGE = "There are not suitable model.product on this list, provided strategy %s";
+
+    private static Product createProduct(String productString) {
+        String[] args = productString.split(SPLIT);
         try {
             ProductTypes productTypes = ProductTypes.valueOf(args[0]);
             return switch (productTypes) {
@@ -27,7 +26,7 @@ public class ProductFactory {
                         new ClothingProduct(args[1], args[0], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
             };
         } catch (IllegalArgumentException e) {
-            throw new NotFoundCorrectInformationException("There are not suitable product on this list");
+            throw new NotFoundCorrectInformationException(ALARM_ERROR_MESSAGE.formatted(args[0]), e.getCause());
         }
     }
 
