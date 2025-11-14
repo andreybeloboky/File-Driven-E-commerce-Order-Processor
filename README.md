@@ -1,4 +1,4 @@
-# \[GitHub]This task builds the core logic of an e‑commerce platform with a configurable architecture. The system reads a product catalog from an external data file and applies discount rules defined in a separate configuration file. It uses object‑oriented principles and common design patterns to ensure flexibility and extensibility. The design allows new discount strategies or catalog formats to be added without modifying the core codebase.
+# \[GitHub]This task builds the core logic of an e‑commerce platform with a configurable architecture. The system reads a model.product catalog from an external data file and applies discount rules defined in a separate configuration file. It uses object‑oriented principles and common design patterns to ensure flexibility and extensibility. The design allows new discount strategies or catalog formats to be added without modifying the core codebase.
 #
 # Architecture should correspond to layered architecture. Getting started
 #

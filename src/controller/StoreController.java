@@ -19,16 +19,13 @@ public class StoreController {
     public static final String MESSAGE_PRODUCTS_LOADED = "Successfully loaded %s products from products.csv.\n";
     public static final String MESSAGE_PERCENTAGE_DISCOUNT_APPLIED = """
             Applying %s percentage discount from active_discount.properties.
-            ---\s
-            """;
+            ---\s""";
     public static final String MESSAGE_AMOUNT_DISCOUNT_APPLIED = """
             Applying %s discount from active_discount.properties.
-            ---\s
-            """;
+            ---\s""";
     public static final String MESSAGE_NO_DISCOUNT_APPLIED = """
             Applying no discount from active_discount.properties.
-            ---\s
-            """;
+            ---\s""";
     public static final String MESSAGE_TOTAL_WEIGHT = "Total Shipping Weight: %s kg \n";
     public static final String MESSAGE_ORDER_SUBTOTAL = "Order Subtotal: %s$ \n";
     public static final String MESSAGE_FINAL_PRICE = "Final Price: %s$";
