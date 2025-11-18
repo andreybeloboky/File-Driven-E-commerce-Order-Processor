@@ -14,8 +14,8 @@ import java.util.List;
 
 public class StoreController {
 
-    public static final Path PRODUCT_FILE_PATH = Path.of("D:\\products.csv");
-    public static final Path DISCOUNT_FILE_PATH = Path.of("D:\\active_discount.properties.csv");
+    public static final Path PRODUCT_FILE_PATH = Path.of("resources/products.csv");
+    public static final Path DISCOUNT_FILE_PATH = Path.of("resources/active_discount.properties.csv");
     public static final String MESSAGE_PRODUCTS_LOADED = "Successfully loaded %s products from products.csv.\n";
     public static final String MESSAGE_PERCENTAGE_DISCOUNT_APPLIED = """
             Applying %s percentage discount from active_discount.properties.
