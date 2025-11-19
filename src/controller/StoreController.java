@@ -1,12 +1,9 @@
 package controller;
 
-import discount.DiscountFactory;
+import discount.*;
 import product.ProductFactory;
 import order.Order;
 import product.Product;
-import discount.DiscountStrategy;
-import discount.FixedAmountDiscount;
-import discount.PercentageDiscount;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -38,15 +35,13 @@ public class StoreController {
         double totalPriceWithoutDiscount = order.getSubtotalWithoutDiscount();
         System.out.printf(MESSAGE_PRODUCTS_LOADED, products.size());
 
-
-
-
-        if (discountStrategy instanceof PercentageDiscount) {
-            System.out.printf(MESSAGE_PERCENTAGE_DISCOUNT_APPLIED, discountStrategy.getValue());
-        } else if (discountStrategy instanceof FixedAmountDiscount) {
-            System.out.printf(MESSAGE_AMOUNT_DISCOUNT_APPLIED, discountStrategy.getValue());
-        } else {
-            System.out.printf(MESSAGE_NO_DISCOUNT_APPLIED);
+        switch (discountStrategy) {
+            case PercentageDiscount percentageDiscount ->
+                    System.out.printf(MESSAGE_PERCENTAGE_DISCOUNT_APPLIED, discountStrategy.getValue());
+            case FixedAmountDiscount fixedAmountDiscount ->
+                    System.out.printf(MESSAGE_AMOUNT_DISCOUNT_APPLIED, discountStrategy.getValue());
+            case NoDiscount noDiscount -> System.out.printf(MESSAGE_NO_DISCOUNT_APPLIED);
+            default -> throw new IllegalStateException("Unexpected value: " + discountStrategy);
         }
         System.out.printf(MESSAGE_TOTAL_WEIGHT, order.getTotalWeight());
         System.out.printf(MESSAGE_ORDER_SUBTOTAL, totalPriceWithoutDiscount);
