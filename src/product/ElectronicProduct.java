@@ -10,11 +10,11 @@ public class ElectronicProduct extends Product implements Shippable {
 
     @Override
     public double calculatePrice() {
-        return basePrice * CONSTANT_INDEX;
+        return getBasePrice() * CONSTANT_INDEX;
     }
 
     @Override
     public double getShippingWeight() {
-        return weight;
+        return getWeight();
     }
 }

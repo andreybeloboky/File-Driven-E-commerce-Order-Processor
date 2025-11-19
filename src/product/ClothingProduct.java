@@ -8,11 +8,11 @@ public class ClothingProduct extends Product implements Shippable {
 
     @Override
     public double calculatePrice() {
-        return basePrice;
+        return getBasePrice();
     }
 
     @Override
     public double getShippingWeight() {
-        return weight;
+        return getWeight();
     }
 }

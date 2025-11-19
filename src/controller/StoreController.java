@@ -37,6 +37,10 @@ public class StoreController {
         double totalPriceWithDiscount = order.calculateTotalPrice();
         double totalPriceWithoutDiscount = order.getSubtotalWithoutDiscount();
         System.out.printf(MESSAGE_PRODUCTS_LOADED, products.size());
+
+
+
+
         if (discountStrategy instanceof PercentageDiscount) {
             System.out.printf(MESSAGE_PERCENTAGE_DISCOUNT_APPLIED, discountStrategy.getValue());
         } else if (discountStrategy instanceof FixedAmountDiscount) {
